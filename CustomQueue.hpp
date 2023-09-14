@@ -1,5 +1,7 @@
 #pragma once
-#include "CustomNode.h"
+#include "CustomNode.hpp"
+
+typedef unsigned long long size_t;
 
 template <class Value>
 class CustomQueue {

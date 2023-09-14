@@ -1,5 +1,6 @@
 #include "macros.h"
-#include "CustomQueue.h"
+#include "CustomQueue.hpp"
+
 
 using namespace std;
 

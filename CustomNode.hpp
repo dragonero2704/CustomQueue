@@ -4,7 +4,7 @@
 
 template <class Value>
 class QueueNode {
-	template<class Value>
+	template<class _Value>
 	friend class CustomQueue;
 private:
 	QueueNode<Value>* next;

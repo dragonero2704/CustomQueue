@@ -19,33 +19,6 @@ protected:
 		delete node;
 	}
 
-	class BaseIterator
-	{
-	protected:
-		QueueNode<Value> *ptr;
-
-	public:
-		BaseIterator()
-		{
-			this->ptr = nullptr;
-		}
-		BaseIterator(QueueNode<Value> *node)
-		{
-			this->ptr = node;
-		}
-		~BaseIterator() {}
-
-		bool operator==(const BaseIterator &other) const
-		{
-			return this->ptr == other->ptr;
-		}
-
-		bool operator!=(const BaseIterator &other) const
-		{
-			return this->ptr != other->ptr;
-		}
-	};
-
 public:
 	// constructor
 	CustomQueue()
@@ -134,49 +107,7 @@ public:
 		return this->_size;
 	}
 
-	class Iterator : public BaseIterator
-	{
-	public:
-		Iterator()
-		{
-			this->ptr = nullptr;
-		}
-		Iterator(QueueNode<Value> *node)
-		{
-			this->ptr = node;
-		}
-		void operator++()
-		{
-			if (this->ptr)
-				this->ptr = this->ptr->next;
-		}
-		void operator--()
-		{
-			if (this->ptr)
-				this->ptr = this->ptr->previous;
-		}
-	};
-	class ReverseIterator : public BaseIterator
-	{
-		ReverseIterator()
-		{
-			this->ptr = nullptr;
-		}
-		ReverseIterator(QueueNode<Value> *node)
-		{
-			this->ptr = node;
-		}
-		void operator--()
-		{
-			if (this->ptr)
-				this->ptr = this->ptr->next;
-		}
-		void operator++()
-		{
-			if (this->ptr)
-				this->ptr = this->ptr->previous;
-		}
-	};
+	
 };
 
 template <class Value, class Comparator = std::less<Value>>
@@ -214,6 +145,6 @@ public:
 	// push method override
 	void push(const Value &value)
 	{
-		
+
 	}
 };

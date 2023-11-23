@@ -9,7 +9,6 @@ class QueueNode {
 private:
 	QueueNode<Value>* next;
 	Value value;
-	
 public:
 	// constructors
 	QueueNode() {

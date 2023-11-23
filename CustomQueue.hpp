@@ -42,6 +42,7 @@ public:
 		while (start != end)
 		{
 			this->_last->next = new QueueNode<Value>(*start);
+			this->_last = this->_last->next;
 			start++;
 			this->_size++;
 		}
@@ -66,7 +67,7 @@ public:
 	}
 
 	// returns a constant reference to the top value
-	Value front() const
+	const Value &front() const
 	{
 		return this->_top->value;
 	}
@@ -75,7 +76,7 @@ public:
 		return this->_last->value;
 	}
 
-	void push(Value value)
+	void push(const Value& value)
 	{
 		this->_last->next = new QueueNode<Value>(value);
 		this->_last = this->_last->next;
@@ -106,8 +107,6 @@ public:
 	{
 		return this->_size;
 	}
-
-	
 };
 
 template <class Value, class Comparator = std::less<Value>>
@@ -145,6 +144,5 @@ public:
 	// push method override
 	void push(const Value &value)
 	{
-
 	}
 };
